@@ -8,27 +8,68 @@
 </head>
 <body>
     <header>
+        <div class="logo">
+            <h1>PRC</h1>
+            <p>Premium Kitchen Appliances for Your Home</p>
+        </div>
         <nav>
-            <div>
-                <h1>PRC</h1>
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="products.html" class="nav-link">Products</a>
-                    <a href="login.html" class="nav-link">Login</a>
-                </div>
-            </div>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="products.html">Products</a></li>
+                <li><a class="nav-link" href="categories.html">Categories</a></li>
+                <li><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="p-4">
-        <h2>Welcome to PRC</h2>
-        <p>Your one-stop shop for premium kitchen appliances.</p>
+    <main>
+        <section class="featured">
+            <h2>Featured Products</h2>
+            <div class="tabs">
+                <button class="tab tab-active" onclick="openTab(event, 'product1')">Product 1</button>
+                <button class="tab" onclick="openTab(event, 'product2')">Product 2</button>
+                <button class="tab" onclick="openTab(event, 'product3')">Product 3</button>
+            </div>
+            <div id="product1" class="tab-content" style="display:block;">
+                <div class="product-card">
+                    <h3>Featured Product 1</h3>
+                    <p>High-quality kitchen appliance designed for efficiency and style.</p>
+                </div>
+            </div>
+            <div id="product2" class="tab-content" style="display:none;">
+                <div class="product-card">
+                    <h3>Featured Product 2</h3>
+                    <p>Modern design with advanced features for everyday use.</p>
+                </div>
+            </div>
+            <div id="product3" class="tab-content" style="display:none;">
+                <div class="product-card">
+                    <h3>Featured Product 3</h3>
+                    <p>Innovative and energy-efficient solution for your kitchen.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="p-4">
+    <footer>
         <p>&copy; 2024 PRC. All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Simple tab switching function
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("tab-active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("tab-active");
+        }
+    </script>
 </body>
 </html> 
