@@ -98,12 +98,10 @@ app.use((req, res, next) => {
     });
 });
 
-// Simple server start for Vercel
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(port, () => {
-        console.log(`PRC app listening at http://localhost:${port}`);
-    });
-}
+// Start the server
+app.listen(port, () => {
+    console.log(`PRC app listening at http://localhost:${port}`);
+});
 
 // Export the app for Vercel
 module.exports = app; 
