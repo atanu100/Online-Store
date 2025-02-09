@@ -46,8 +46,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
+    const products = [
+        { name: 'Product 1', price: 1500, image: 'path/to/image1.jpg' },
+        { name: 'Product 2', price: 2500, image: 'path/to/image2.jpg' },
+        { name: 'Product 3', price: 3500, image: 'path/to/image3.jpg' },
+    ];
     res.render('products', { 
         layout: 'base',
+        products,
         ...siteConfig 
     });
 });
