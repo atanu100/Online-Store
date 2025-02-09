@@ -19,57 +19,18 @@
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <a href="/" class="nav-link group">
-                            <svg class="w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                            </svg>
                             <span>Home</span>
                         </a>
                         <a href="/products" class="nav-link group">
-                            <svg class="w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
                             <span>Products</span>
                         </a>
                         <a href="/categories" class="nav-link group">
-                            <svg class="w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                            </svg>
                             <span>Categories</span>
                         </a>
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <div class="sm:hidden">
-                        <button id="mobileMenuButton" type="button" class="btn-icon">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                    <button id="cartButton" class="btn-icon">
-                        <span class="sr-only">Shopping Cart</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                        </svg>
-                        <span class="badge">0</span>
-                    </button>
-                    <button id="userMenuButton" class="btn-icon">
-                        <span class="sr-only">User menu</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </button>
-                </div>
             </div>
         </nav>
-        <div id="mobileMenu" class="hidden sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="/" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
-                <a href="/products" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Products</a>
-                <a href="/categories" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Categories</a>
-            </div>
-        </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -77,31 +38,8 @@
     </main>
 
     <footer class="bg-gray-50 text-gray-600 mt-auto border-t">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-gray-900">{{siteName}}</h3>
-                    <p class="text-gray-500">Quality kitchen appliances for your home.</p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="/about" class="hover:text-gray-900 transition-colors">About Us</a></li>
-                        <li><a href="/contact" class="hover:text-gray-900 transition-colors">Contact</a></li>
-                        <li><a href="/shipping" class="hover:text-gray-900 transition-colors">Shipping Info</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-gray-900">Contact Us</h3>
-                    <ul class="space-y-2">
-                        <li>Email: {{siteEmail}}</li>
-                        <li>Phone: {{sitePhone}}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t text-center text-sm">
-                <p>&copy; 2024 {{siteName}}. All rights reserved.</p>
-            </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 text-center">
+            <p>&copy; 2024 {{siteName}}. All rights reserved.</p>
         </div>
     </footer>
 
