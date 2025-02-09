@@ -7,7 +7,33 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body class="bg-white font-['Inter']">
-    <div class="max-w-md mx-auto mt-10">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-gray-900">{{siteName}}</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="/" class="nav-link group">
+                            <span>Home</span>
+                        </a>
+                        <a href="/products" class="nav-link group">
+                            <span>Products</span>
+                        </a>
+                        <a href="/categories" class="nav-link group">
+                            <span>Categories</span>
+                        </a>
+                        <a href="/login" class="nav-link group">
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="max-w-md mx-auto mt-10 px-4">
         <h1 class="text-3xl font-bold text-center">Login</h1>
         <form id="loginForm" class="mt-6">
             <div>
@@ -22,6 +48,13 @@
         </form>
         <div id="errorMessage" class="text-red-500 mt-2 hidden"></div>
     </div>
+
+    <footer class="bg-gray-50 text-gray-600 mt-auto border-t">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 text-center">
+            <p>&copy; 2024 {{siteName}}. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="/assets/js/main.js"></script>
 </body>
 </html> 
