@@ -29,6 +29,10 @@ header .logo p {
     font-size: 0.9rem;
 }
 
+header .logo img {
+    height: 50px; /* Ensure this is set correctly */
+}
+
 /* Navigation styles */
 .nav-links {
     list-style: none;

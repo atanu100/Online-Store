@@ -24,10 +24,7 @@ app.set('views', path.join(__dirname, 'sites/templates'));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/assets', express.static(path.join(__dirname, 'assets'), {
-    maxAge: '1d',
-    etag: true
-}));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Site configuration
 const siteConfig = {
