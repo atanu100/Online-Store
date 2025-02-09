@@ -59,6 +59,30 @@ app.get('/categories', (req, res) => {
     });
 });
 
+// Add this route to serve the login page
+app.get('/login', (req, res) => {
+    res.render('login', {
+        layout: 'base',
+        ...siteConfig
+    });
+});
+
+// Add this route to handle login requests
+app.post('/auth/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    // Here you would typically check the credentials against a database
+    // For demonstration, let's assume a simple check
+    if (email === 'test@example.com' && password === 'password') {
+        // Simulate successful login
+        req.session.user = { email }; // Store user info in session
+        return res.json({ success: true });
+    }
+
+    // If login fails
+    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+});
+
 // Add 404 handler
 app.use((req, res, next) => {
     res.status(404).render('404', { 

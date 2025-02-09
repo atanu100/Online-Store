@@ -149,4 +149,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Add this code to handle the login form submission
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Redirect to home or another page on successful login
+                    window.location.href = '/';
+                } else {
+                    // Show error message
+                    errorMessage.textContent = data.message;
+                    errorMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+    }
 }); 
