@@ -2,22 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-link {
-    @apply inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 hover:text-gray-500;
-}
+@layer components {
+  .nav-link {
+    @apply inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-md transition-colors;
+  }
 
-.product-card {
-    @apply bg-white rounded-lg shadow-sm overflow-hidden transition-transform hover:shadow-md hover:-translate-y-1;
-}
+  .product-card {
+    @apply bg-white rounded-lg border border-gray-200 overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1;
+  }
 
-.btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors;
-}
+  .btn-primary {
+    @apply bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium;
+  }
 
-.btn-secondary {
-    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors;
-}
+  .btn-secondary {
+    @apply bg-white text-gray-900 px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-50 transition-colors font-medium;
+  }
 
-.input-field {
-    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
+  .btn-icon {
+    @apply p-2 text-gray-600 hover:text-gray-900 rounded-md transition-colors relative;
+  }
+
+  .badge {
+    @apply absolute -top-1 -right-1 bg-gray-900 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-medium;
+  }
+
+  .input-field {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 transition-colors;
+  }
 } 

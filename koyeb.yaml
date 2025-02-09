@@ -1,0 +1,21 @@
+name: prc
+service:
+  name: web
+  type: web
+  env:
+    - name: NODE_ENV
+      value: production
+  ports:
+    - port: 3000
+      protocol: http
+  routes:
+    - path: /
+  build:
+    builder: nodejs
+    env:
+      - name: NODE_VERSION
+        value: 18
+  scale:
+    horizontal:
+      min: 1
+      max: 1 

@@ -27,4 +27,10 @@ yarn-error.log*
 # Cache directories
 .cache/
 .npm/
-.temp/ 
+.temp/
+
+# Vercel
+.vercel
+
+# OS
+Thumbs.db 

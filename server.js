@@ -2,7 +2,16 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
+
+// Trust proxy for Vercel
+app.enable('trust proxy');
+
+// Enable better error logging
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 // Setup handlebars
 app.engine('handlebars', exphbs.engine({
@@ -14,33 +23,19 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'sites/templates'));
 
 // Serve static files
-app.use('/assets', express.static('assets'));
-app.use('/sites', express.static('sites'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'assets'), {
+    maxAge: '1d',
+    etag: true
+}));
 
 // Site configuration
 const siteConfig = {
     siteName: 'PRC',
-    siteLogo: '/assets/images/logo.png',
+    siteLogo: 'https://via.placeholder.com/150x50?text=PRC',  // Temporary logo
     siteEmail: 'contact@prc.com',
     sitePhone: '1-800-PRC-KITCHEN'
 };
-
-// Function to start server on next available port
-function startServer(initialPort) {
-    const server = app.listen(initialPort)
-        .on('error', (err) => {
-            if (err.code === 'EADDRINUSE') {
-                console.log(`Port ${initialPort} is busy, trying ${initialPort + 1}...`);
-                startServer(initialPort + 1);
-            } else {
-                console.error('Server error:', err);
-            }
-        })
-        .on('listening', () => {
-            const address = server.address();
-            console.log(`PRC app listening at http://localhost:${address.port}`);
-        });
-}
 
 // Handle routes
 app.get('/', (req, res) => {
@@ -64,5 +59,21 @@ app.get('/categories', (req, res) => {
     });
 });
 
-// Start the server
-startServer(port); 
+// Add 404 handler
+app.use((req, res, next) => {
+    res.status(404).render('404', { 
+        layout: 'base',
+        ...siteConfig,
+        message: 'Page not found'
+    });
+});
+
+// Simple server start for Vercel
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`PRC app listening at http://localhost:${port}`);
+    });
+}
+
+// Export the app for Vercel
+module.exports = app; 
