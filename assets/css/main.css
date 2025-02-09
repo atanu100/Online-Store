@@ -1,3 +1,54 @@
+/* assets/css/main.css */
+
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation styles */
+.nav-link {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Change to your preferred hover color */
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+}
+
+/* Product card styles */
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
