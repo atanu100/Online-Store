@@ -7,6 +7,10 @@ const port = process.env.PORT || 3000;
 // Trust proxy for Vercel
 app.enable('trust proxy');
 
+// Middleware to parse request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Enable better error logging
 app.use((err, req, res, next) => {
     console.error(err.stack);
