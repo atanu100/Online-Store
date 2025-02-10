@@ -1,13 +1,3 @@
-import postgres from 'postgres';
-
-const sql = postgres({
-  host: process.env.DATABASE_HOST,
-  database: process.env.DATABASE_NAME,
-  username: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  ssl: 'require',
-});
-
 // Site Configuration
 const siteConfig = {
     currentSite: window.location.hostname,
@@ -106,12 +96,30 @@ class Auth {
             if (data.token) {
                 this.token = data.token;
                 localStorage.setItem('authToken', data.token);
+                await this.logLoginAttempt(email, true);
                 return true;
+            } else {
+                await this.logLoginAttempt(email, false);
+                return false;
             }
-            return false;
         } catch (error) {
             console.error('Login error:', error);
+            await this.logLoginAttempt(email, false);
             return false;
+        }
+    }
+
+    async logLoginAttempt(email, success) {
+        try {
+            await fetch('/api/logs/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, success, timestamp: new Date() })
+            });
+        } catch (error) {
+            console.error('Error logging login attempt:', error);
         }
     }
 
