@@ -33,4 +33,9 @@ yarn-error.log*
 .vercel
 
 # OS
-Thumbs.db 
+Thumbs.db
+
+DATABASE_HOST=ep-white-silence-a4p7vtyi.us-east-1.pg.koyeb.app
+DATABASE_USER=koyeb-adm
+DATABASE_PASSWORD=npg_AqTCzI3SHty8
+DATABASE_NAME=koyebdb 
